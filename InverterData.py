@@ -10,7 +10,7 @@ import binascii
 import re
 import libscrc
 import json
-import paho.mqtt.client as paho
+#import paho.mqtt.client as paho
 import os
 import configparser
 import datetime
@@ -312,7 +312,7 @@ if influxdb=="1" and invstatus==0:
 if mqtt==1:
   WriteDebug(logfile, "Writing data to MQTT")
   # Initialise MQTT connection
-  client=paho.Client("inverter")
+  #client=paho.Client("inverter")
   if mqtt_tls=="1":
     client.tls_set(mqtt_cacert,tls_version=mqtt_tls_ver)
     client.tls_insecure_set(mqtt_tls_insecure)
@@ -407,3 +407,10 @@ if mqtt==1:
 clientSocket.close()
 WriteDebug(logfile, "Script end")
 logfile.close()
+
+print("last log message")
+with open("InverterData.log") as log:
+    for line in log:
+        pass
+    dupa_log = line
+print(dupa_log)
